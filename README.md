@@ -24,7 +24,7 @@ Avant de commencer à développer l'application Angular, vous devez mettre en pl
 1. Clonez le dépôt de l'API
 2. Installez les dépendances :
    ```
-   cd tp02-api
+   cd epsi-tp-02
    npm install
    ```
 3. Créez un fichier `.env` à la racine du projet avec le contenu suivant :
