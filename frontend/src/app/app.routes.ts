@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { ProductDetailComponent } from './components/product-detail/product-detail.component';
+import { ProductFormComponent } from './components/product-form/product-form.component';
 
 export const routes: Routes = [
   // Redirection de la route racine vers 'home'
@@ -11,6 +12,9 @@ export const routes: Routes = [
   
   // Route alternative pour la liste des produits
   { path: 'products', component: ProductListComponent },
+
+  // Route pour le formulaire de création d'un produit
+  { path: 'products/new', component: ProductFormComponent },
   
   // Route pour les détails d'un produit
   { path: 'product/:id', component: ProductDetailComponent },

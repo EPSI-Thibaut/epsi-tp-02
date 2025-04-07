@@ -116,8 +116,10 @@ export class ProductDetailComponent implements OnInit {
     this.enrichedDescription = '';
   }
 
-  goToEdit() {
-    this.router.navigate(['/products/edit', this.product.id]);
+  goToEdit(): void {
+    if (this.product) {
+      this.router.navigate(['/products/edit', this.product.id]);
+    }
   }
 
   goBack(): void {

@@ -1,6 +1,6 @@
 <div class="container">
     <h2>Liste des produits</h2>
-  
+    <button [routerLink]="['/products/new']" class="create-button">+ Nouveau produit</button>
     <div *ngIf="isLoading" class="loading">
       <p>Chargement des produits...</p>
     </div>

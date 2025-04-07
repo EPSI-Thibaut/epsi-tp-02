@@ -1,0 +1,75 @@
+<div class="container">
+    <h2>{{ isEditMode ? 'Modifier le produit' : 'Créer un nouveau produit' }}</h2>
+  
+    <div *ngIf="error" class="error-message">
+      <p>{{ error }}</p>
+    </div>
+  
+    <form [formGroup]="productForm" (ngSubmit)="onSubmit()" class="product-form">
+      <div class="form-group">
+        <label for="name">Nom du produit *</label>
+        <input 
+          type="text" 
+          id="name" 
+          formControlName="name" 
+          [class.invalid]="hasError('name', 'required') || hasError('name', 'minlength')"
+        >
+        <div class="error-text" *ngIf="hasError('name', 'required')">
+          Le nom du produit est requis.
+        </div>
+        <div class="error-text" *ngIf="hasError('name', 'minlength')">
+          Le nom doit contenir au moins 3 caractères.
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea 
+          id="description" 
+          formControlName="description" 
+          rows="5"
+          [class.invalid]="hasError('description', 'maxlength')"
+        ></textarea>
+        <div class="error-text" *ngIf="hasError('description', 'maxlength')">
+          La description ne peut pas dépasser 500 caractères.
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="price">Prix *</label>
+        <input 
+          type="number" 
+          id="price" 
+          formControlName="price" 
+          step="0.01"
+          [class.invalid]="hasError('price', 'required') || hasError('price', 'min')"
+        >
+        <div class="error-text" *ngIf="hasError('price', 'required')">
+          Le prix est requis.
+        </div>
+        <div class="error-text" *ngIf="hasError('price', 'min')">
+          Le prix ne peut pas être négatif.
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="category">Catégorie *</label>
+        <input 
+          type="text" 
+          id="category" 
+          formControlName="category"
+          [class.invalid]="hasError('category', 'required')"
+        >
+        <div class="error-text" *ngIf="hasError('category', 'required')">
+          La catégorie est requise.
+        </div>
+      </div>
+  
+      <div class="form-actions">
+        <button type="button" (click)="cancel()" class="cancel-button">Annuler</button>
+        <button type="submit" [disabled]="productForm.invalid || isSubmitting" class="submit-button">
+          {{ isEditMode ? 'Mettre à jour' : 'Créer' }}
+        </button>
+      </div>
+    </form>
+  </div>
