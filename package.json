@@ -9,6 +9,8 @@
         "init-db": "node database/init-db.js"
     },
     "dependencies": {
+        "@angular/common": "^19.2.5",
+        "@angular/router": "^19.2.5",
         "axios": "^1.8.2",
         "cors": "^2.8.5",
         "dotenv": "^16.3.1",
@@ -17,6 +19,7 @@
         "sqlite3": "^5.1.6"
     },
     "devDependencies": {
+        "@types/node": "^22.14.0",
         "nodemon": "^3.0.2"
     }
 }

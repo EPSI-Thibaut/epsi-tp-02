@@ -1,0 +1,52 @@
+<div class="container">
+    <h2>Liste des produits</h2>
+  
+    <div *ngIf="isLoading" class="loading">
+      <p>Chargement des produits...</p>
+    </div>
+  
+    <div *ngIf="error" class="error-message">
+      <p>{{ error }}</p>
+      <button (click)="loadProducts()">Réessayer</button>
+    </div>
+  
+    <div *ngIf="!isLoading && !error" class="product-list-container">
+      <div class="search-bar">
+        <input 
+          type="text" 
+          [(ngModel)]="searchTerm" 
+          (input)="searchProducts()" 
+          placeholder="Rechercher un produit..."
+          class="search-input">
+      </div>
+  
+      <div class="sort-options">
+        <button (click)="sortProducts('name')" [class.active]="sortColumn === 'name'">
+          Trier par nom 
+          <span *ngIf="sortColumn === 'name'">{{ sortDirection === 'asc' ? '↑' : '↓' }}</span>
+        </button>
+        <button (click)="sortProducts('price')" [class.active]="sortColumn === 'price'">
+          Trier par prix
+          <span *ngIf="sortColumn === 'price'">{{ sortDirection === 'asc' ? '↑' : '↓' }}</span>
+        </button>
+        <button (click)="sortProducts('category')" [class.active]="sortColumn === 'category'">
+          Trier par catégorie
+          <span *ngIf="sortColumn === 'category'">{{ sortDirection === 'asc' ? '↑' : '↓' }}</span>
+        </button>
+      </div>
+  
+      <div *ngIf="filteredProducts.length === 0" class="no-products">
+        <p>Aucun produit trouvé</p>
+      </div>
+  
+      <div class="product-grid">
+        <div *ngFor="let product of filteredProducts" class="product-card">
+          <h3>{{ product.name }}</h3>
+          <p class="price">{{ product.price | currency:'EUR':'symbol':'1.2-2' }}</p>
+          <p class="category">{{ product.category }}</p>
+          <p class="description">{{ (product.description | slice:0:100) || 'Pas de description' }}{{ product.description?.length > 100 ? '...' : '' }}</p>
+          <button [routerLink]="['/product', product.id]" class="details-button">Voir détails</button>
+        </div>
+      </div>
+    </div>
+  </div>

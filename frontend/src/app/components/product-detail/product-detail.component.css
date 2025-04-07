@@ -1,0 +1,169 @@
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .loading, .error-message {
+    text-align: center;
+    margin: 30px 0;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+  }
+  
+  .error-message {
+    color: #d32f2f;
+    background-color: #ffebee;
+  }
+  
+  .navigation {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .back-button {
+    background-color: #f0f0f0;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .action-buttons {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .edit-button {
+    background-color: #2196F3;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .delete-button {
+    background-color: #F44336;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .product-header {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+  }
+  
+  .product-header h2 {
+    margin: 0;
+    color: #333;
+  }
+  
+  .price {
+    font-size: 24px;
+    font-weight: bold;
+    color: #2196F3;
+  }
+  
+  .product-info {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 20px;
+  }
+  
+  .info-section, .description-section {
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    padding: 15px;
+  }
+  
+  .description-container {
+    margin-bottom: 20px;
+  }
+  
+  .original-description, .enriched-description {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px;
+    margin-bottom: 15px;
+  }
+  
+  .enriched-description {
+    border-left: 4px solid #4CAF50;
+  }
+  
+  .enrichment-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  
+  .keep-button {
+    background-color: #4CAF50;
+    color: white;
+  }
+  
+  .reject-button {
+    background-color: #F44336;
+    color: white;
+  }
+  
+  .keep-button, .reject-button {
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .enrichment-options {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 15px;
+  }
+  
+  .option-group {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .option-group label {
+    width: 100px;
+  }
+  
+  .option-group select {
+    padding: 5px;
+    width: calc(100% - 100px);
+    border-radius: 4px;
+    border: 1px solid #ddd;
+  }
+  
+  .enrich-button {
+    background-color: #673AB7;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 10px;
+  }
+  
+  .enrich-button:disabled {
+    background-color: #b39ddb;
+    cursor: not-allowed;
+  }
+  
+  @media (max-width: 768px) {
+    .product-info {
+      grid-template-columns: 1fr;
+    }
+  }
